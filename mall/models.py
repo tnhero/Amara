@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
+from django.core.mail import send_mail
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -10,7 +11,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField('date joined', auto_now_add=True)
     is_active = models.BooleanField('active', default=True)
     telephone = models.IntegerField(max_length=13)
-    address1 = models.CharField(max_length=1000)
+    address1 = models.CharField(max_length=1000, blank=False)
     address2 = models.CharField(max_length=1000, blank=True)
 
     objects = UserManager()
@@ -97,12 +98,3 @@ class Item (models.Model):
     photo1 = models.ImageField(upload_to= '/item/%Y/%m/%d', blank=False)
     photo2 = models.ImageField(upload_to='/item/%Y/%m/%d', blank=True)
     photo3 = models.ImageField(upload_to='/item/%Y/%m/%d', blank=True)
-
-
-class Buyer (models.Model):
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
-    email = models.EmailField(max_length=60)
-    telephone = models.IntegerField(max_length=13)
-    address1 = models.CharField(max_length=100, blank=False)
-    address2 = models.CharField(max_length=100, blank=True)
