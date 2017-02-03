@@ -4,9 +4,9 @@ from django.views.generic import View
 from .forms import UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse_lazy
+
+
 # Create your views here.
-
-
 class UserFormView(View):
     form_class = UserForm
     template_name = 'mall/signup.html'
@@ -45,6 +45,6 @@ def index (request):
     return render(request, template_name )
 
 
-def logout(request):
+def logout_page(request):
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('mall:index')

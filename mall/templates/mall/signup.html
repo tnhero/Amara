@@ -1,10 +1,17 @@
 {% extends 'mall/base.html' %}
 {% block content %}
-    <div class="row">
+    <form method="post" action="{% url 'mall:signup' %}">{% csrf_token %}
+        <table border="0">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Register" />
+    </form>
+    <a href="{% url 'mall:login' %}">Login</a>
+    <!--<div class="row">
         <div class="col-md-6">
             <h1>Sign Up </h1>
-            <form action="{% url 'mall:signup' %}" method="post">
-                {% csrf_token %}
+            <form action="{f% url 'mall:signup' %}" method="post">
+                {f% csrf_token %}
 
                 <label for="first_name">Firstname: </label>
                 <input name="first_name" id="first_name" type="text"/>
@@ -31,5 +38,5 @@
             </form>
         </div>
         <div class="col-md-6"></div>
-    </div>
+    </div>-->
 {% endblock %}
