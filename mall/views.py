@@ -24,6 +24,7 @@ class UserFormView(View):
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
+            telephone = form.cleaned_data['telephone']
             address1 = form.cleaned_data['address1']
             user.set_password(password)
             user.save()
