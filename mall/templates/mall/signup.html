@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Sign Up </h1>
-            <form action="{% url 'mall:sign-up' %}" method="post">
+            <form action="{% url 'mall:signup' %}" method="post">
                 {% csrf_token %}
 
                 <label for="first_name">Firstname: </label>
@@ -26,8 +26,16 @@
                 <label for="password">Password: </label>
                 <input name="password" id="password" type="password"/>
 
+
+                <label for="telephone">Telephone: </label>
+                <input name="telephone" id="telephone" type="tel"/>
+
                 <label for="address">Address: </label>
                 <input name="address" id="address" type="text"/>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
             </form>
         </div>
         <div class="col-md-6"></div>
