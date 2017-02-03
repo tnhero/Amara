@@ -16,14 +16,27 @@ class UserFormView(View):
 
     def post(self, request):
         form = self.form_class(request.POST)
+
         if form.is_valid():
             user =form.save(commit=False)
 
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
-
+            password = form.cleaned_data['password']
+            address1 = form.cleaned_data['address1']
+            user.set_password(password)
             user.save()
+
+            user = authenticate(email=email, password=password)
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return redirect('mall:index')
+
+        return render(request, self.template_name, {'form':form})
+
 
 class IndexView (View):
     template_name = 'mall/index.html'
