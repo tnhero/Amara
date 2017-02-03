@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+
     <meta charset="UTF-8">
     <title>Adefeyintikenny-Signup</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'mall/stylesheet/bootstrap.css' %}" />
 </head>
-<body>
-
+<body class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Sign Up </h1>
+            <form action="{% url 'mall:sign-up' %}"
+        </div>
+        <div class="col-md-6"></div>
+    </div>
 </body>
 </html>

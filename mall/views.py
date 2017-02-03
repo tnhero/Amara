@@ -18,7 +18,7 @@ class UserFormView(View):
         form = self.form_class(request.POST)
 
         if form.is_valid():
-            user =form.save(commit=False)
+            user = form.save(commit=False)
 
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
