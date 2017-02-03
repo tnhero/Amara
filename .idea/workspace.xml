@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9c49e4e-c6f8-4837-a263-48d09ff6d3ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Amara/settings.py" afterPath="$PROJECT_DIR$/Amara/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Amara/urls.py" afterPath="$PROJECT_DIR$/Amara/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall/forms.py" afterPath="$PROJECT_DIR$/mall/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall/models.py" afterPath="$PROJECT_DIR$/mall/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall/templates/mall/index.html" afterPath="$PROJECT_DIR$/mall/templates/mall/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall/templates/mall/signup.html" afterPath="$PROJECT_DIR$/mall/templates/mall/signup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall/urls.py" afterPath="$PROJECT_DIR$/mall/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall/views.py" afterPath="$PROJECT_DIR$/mall/views.py" />
-    </list>
+    <list default="true" id="c9c49e4e-c6f8-4837-a263-48d09ff6d3ce" name="Default" comment="" />
     <ignored path="Amara.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -68,8 +58,8 @@
       <file leaf-file-name="signup.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mall/templates/mall/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="36" column="73" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
+            <state relative-caret-position="476">
+              <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -896,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mall/templates/mall/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="36" column="73" selection-start-line="36" selection-start-column="73" selection-end-line="36" selection-end-column="73" />
+        <state relative-caret-position="476">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
           <folding />
         </state>
       </provider>
