@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mall.apps.MallConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,4 +123,4 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'mall/pictures'
 
-AUTH_USER_MODEL = 'core.User'
+AUTH_USER_MODEL = 'mall.User'
