@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect
 from django.views.generic import View
 from .forms import UserForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse_lazy
 # Create your views here.
 
@@ -43,3 +44,7 @@ def index (request):
     template_name = 'mall/index.html'
     return render(request, template_name )
 
+
+def logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
