@@ -11,7 +11,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField('date joined', auto_now_add=True)
     is_active = models.BooleanField('active', default=True)
     telephone = models.IntegerField(max_length=13)
-    address1 = models.CharField(max_length=1000, blank=False)
+    address1 = models.CharField(max_length=1000, blank=True)
     address2 = models.CharField(max_length=1000, blank=True)
 
     objects = UserManager()
