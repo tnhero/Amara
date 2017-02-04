@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import View
 from .forms import UserForm
 from django.contrib.auth import authenticate, login, logout
@@ -35,7 +35,8 @@ class UserFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('mall:index')
+                    context = {'user':user}
+                    return render(request, 'mall/index.html', context)
 
         return render(request, self.template_name, {'form':form})
 
@@ -46,5 +47,8 @@ def index (request):
 
 
 def logout_page(request):
-    logout(request)
-    return HttpResponseRedirect('mall:index')
+    try:
+        del request.session['user_id']
+    except KeyError:
+        pass
+    return redirect('mall:index')

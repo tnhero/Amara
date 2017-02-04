@@ -4,37 +4,34 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.mail import send_mail
 
 
-
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, email, first_name, last_name, password, **extra_fields):
+    def _create_user(self, email, first_name, last_name, password, is_staff, **extra_fields):
         """
-        Creates and saves a User with the given email, firstname, lastmame, and password.
+        Creates and saves a User with the given email and password.
         """
         if not email:
-            raise ValueError('The email must be set')
+            raise ValueError('The given email must be set')
         email = self.normalize_email(email)
         user = self.model(email=email, first_name=first_name, last_name=last_name, **extra_fields)
         user.set_password(password)
+        user.is_staff = is_staff
         user.save(using=self._db)
         return user
 
     def create_user(self, email, first_name, last_name, password, **extra_fields):
-        extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(email, first_name, last_name, password, **extra_fields)
 
     def create_superuser(self, email, first_name, last_name, password, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
+        is_staff = True
         extra_fields.setdefault('is_superuser', True)
 
-        if extra_fields.get('is_staff') is not True:
-            raise ValueError('Superuser must have is_staff=True.')
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
 
-        return self._create_user(email, first_name, last_name, password, **extra_fields)
+        return self._create_user(email, first_name, last_name, password, is_staff, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -43,14 +40,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField('last name', max_length=30)
     date_joined = models.DateTimeField('date joined', auto_now_add=True)
     is_active = models.BooleanField('active', default=True)
-    telephone = models.IntegerField()
+    is_staff = models.BooleanField(default=False)
+    telephone = models.IntegerField(blank=True, null=True)
     address1 = models.CharField(max_length=1000, blank=True)
     address2 = models.CharField(max_length=1000, blank=True)
 
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     class Meta:
         verbose_name = 'user'
