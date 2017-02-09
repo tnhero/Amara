@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.core.mail import send_mail
+from django.core.validators import RegexValidator
 
 
 class UserManager(BaseUserManager):
@@ -41,7 +42,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField('date joined', auto_now_add=True)
     is_active = models.BooleanField('active', default=True)
     is_staff = models.BooleanField(default=False)
-    telephone = models.IntegerField(blank=True, null=True)
+    phone_regex = RegexValidator(regex=r'^\+?234?\d{10}$',
+                                 message="Phone number must be in the format: '+234...'. Up to 13 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], blank=True)  # validators should be a list
     address1 = models.CharField(max_length=1000, blank=True)
     address2 = models.CharField(max_length=1000, blank=True)
 
