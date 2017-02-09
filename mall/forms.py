@@ -8,3 +8,11 @@ class UserForm (forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email', 'password', 'telephone', 'address1']
+
+
+# class LoginForm (forms.ModelForm):
+#     password = forms.CharField(widget=forms.PasswordInput)
+#
+#     class Meta:
+#         model = User
+#         fields = ['email', 'password']

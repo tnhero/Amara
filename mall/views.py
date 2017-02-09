@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import View
 from .forms import UserForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse_lazy
+from .models import User
+
+
 # Create your views here.
-
-
 class UserFormView(View):
     form_class = UserForm
     template_name = 'mall/signup.html'
@@ -34,12 +36,17 @@ class UserFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('mall:index')
+                    context = {'user':user}
+                    return render(request, 'mall/index.html', context)
 
         return render(request, self.template_name, {'form':form})
 
 
-def index (request):
+def index(request):
     template_name = 'mall/index.html'
     return render(request, template_name )
 
+
+def tr(request):
+    template_name = 'mall/personal.html'
+    return render(request, template_name)

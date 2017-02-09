@@ -121,6 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = 'mall/pictures'
+MEDIA_ROOT = 'mall/static/mall/pictures'
 
 AUTH_USER_MODEL = 'mall.User'
