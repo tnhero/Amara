@@ -4,6 +4,7 @@ from django.views.generic import View
 from .forms import UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse_lazy
+from .models import User
 
 
 # Create your views here.
@@ -41,14 +42,11 @@ class UserFormView(View):
         return render(request, self.template_name, {'form':form})
 
 
-def index (request):
+def index(request):
     template_name = 'mall/index.html'
     return render(request, template_name )
 
 
-def logout_page(request):
-    try:
-        del request.session['user_id']
-    except KeyError:
-        pass
-    return redirect('mall:index')
+def tr(request):
+    template_name = 'mall/personal.html'
+    return render(request, template_name)

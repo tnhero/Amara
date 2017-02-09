@@ -1,11 +1,13 @@
 from django.conf.urls import url
 from . import views
+from django.contrib.auth import views as auth_views
 
 
 app_name = 'mall'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^signup', views.UserFormView.as_view(), name='signup'),
-    url(r'^login', views.login, name='login'),
-    url(r'^logout', views.logout_page, name='logout'),
+    url(r'^signup/$', views.UserFormView.as_view(), name='signup'),
+    url(r'^login/$', auth_views.login, {'template_name': 'mall/login.html', 'next_page': '/mall'}, name='login'),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/mall'}, name='logout'),
+    url(r'^personal/$', views.tr, name='personal')
 ]

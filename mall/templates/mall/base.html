@@ -5,10 +5,12 @@
         <title>Amara's Wall |
         {% block title %}{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{% static 'mall/stylesheet/bootstrap.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'mall/stylesheet/base.css' %}" />
     </head>
-    <body class="container">
-        <h1>{% block head %}{% endblock %}</h1>
-        {% block content %}{% endblock %}
+{#    <h1>{% block head %}{% endblock %}</h1>#}
+    {% block content %}{% endblock %}
+
+{#        <a href="{% url "mall:login" %}?next={{request.path}}">Login</a>#}
 
     </body>
 </html>
