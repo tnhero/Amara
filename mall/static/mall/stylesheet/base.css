@@ -1,0 +1,17 @@
+.navbar-default{background-color: white}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus
+{background-color: #5bc0de; opacity: .6; color: white}
+
+.navbar-default .navbar-nav > li{height: 55px;}
+.navbar-default .navbar-nav > li > a{color: #333; font-weight: bold}
+ul li a img {margin-left: 3px; margin-right: 10px; position: relative; top:-4px; height:25px; width: 25px;}
+#right li{
+    border-left-style: solid;
+    border-right-color:#5bc0de;
+    border-left-color: #5bc0de;
+}
+#signup{background-color: #98daea}
+#signup a{color: #444444; font-weight: bold;}
