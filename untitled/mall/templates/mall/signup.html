@@ -1,0 +1,42 @@
+{% extends 'mall/base.html' %}
+{% block content %}
+    <form method="post" action="{% url 'mall:signup' %}">{% csrf_token %}
+        <table border="0">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Register" />
+    </form>
+    <a href="{% url 'mall:login' %}">Login</a>
+    <!--<div class="row">
+        <div class="col-md-6">
+            <h1>Sign Up </h1>
+            <form action="{f% url 'mall:signup' %}" method="post">
+                {f% csrf_token %}
+
+                <label for="first_name">Firstname: </label>
+                <input name="first_name" id="first_name" type="text"/>
+
+                <label for="last_name">Lastname: </label>
+                <input name="last_name" id="last_name" type="text"/>
+
+                <label for="email">Email: </label>
+                <input name="email" id="email" type="email"/>
+
+                <label for="password">Password: </label>
+                <input name="password" id="password" type="password"/>
+
+
+                <label for="telephone">Telephone: </label>
+                <input name="telephone" id="telephone" type="tel"/>
+
+                <label for="address">Address: </label>
+                <input name="address" id="address" type="text"/>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6"></div>
+    </div>-->
+{% endblock %}
