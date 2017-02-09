@@ -44,7 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     phone_regex = RegexValidator(regex=r'^\+?234?\d{10}$',
                                  message="Phone number must be in the format: '+234...'. Up to 13 digits allowed.")
-    phone_number = models.CharField(validators=[phone_regex], blank=True)  # validators should be a list
+    telephone = models.CharField(validators=[phone_regex], blank=True)  # validators should be a list
     address1 = models.CharField(max_length=1000, blank=True)
     address2 = models.CharField(max_length=1000, blank=True)
 
